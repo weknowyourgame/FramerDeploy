@@ -8,13 +8,30 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'URL is required' }, { status: 400 });
     }
 
-    // For now, just return a success response
-    // In a real implementation, you would fetch the Framer website HTML and assets
+    // Call our Express API to download the Framer website
+    const apiUrl = process.env.API_URL || 'http://localhost:3001';
+    const response = await fetch(`${apiUrl}/download-framer`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': process.env.SECRET_TOKEN || 'your-api-key-here'
+      },
+      body: JSON.stringify({ url })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      return NextResponse.json({ error: errorData.detail || 'Download failed' }, { status: response.status });
+    }
+
+    const data = await response.json();
+    
     return NextResponse.json({ 
       success: true, 
-      message: 'Download initiated',
+      message: 'Download completed successfully',
       url,
-      // In a real implementation, you would return download links or file data
+      download_url: data.download_url,
+      view_url: data.view_url
     });
   } catch (error) {
     console.error('Error downloading Framer website:', error);

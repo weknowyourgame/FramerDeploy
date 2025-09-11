@@ -13,24 +13,15 @@ export default function Hero() {
     setIsDownloading(true);
     
     try {
-      const response = await fetch('/api/download', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ url }),
+      toast.info('Processing your download request...', { 
+        duration: 8000,
+        description: 'Your download will start automatically when ready.'
       });
-      
-      if (!response.ok) {
-        throw new Error('Download failed');
-      }
-      
-      // In a real implementation, you would handle the download process here
-      toast.success('Download started! Check your downloads folder.');
-      
+      // Note: We don't need to make an API call here anymore
+      // The UrlInput component now handles the download directly
     } catch (error) {
       console.error('Error downloading website:', error);
-      toast.error('Failed to download. Please try again.');
+      toast.error(`Failed to download: ${error instanceof Error ? error.message : 'Please try again.'}`);
     } finally {
       setIsDownloading(false);
     }
@@ -46,13 +37,13 @@ export default function Hero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-lime-400" />
           </span>
           <p className="uppercase text-sm font-medium">
-            100% Off 🎉
+            100% Off 🎉 | Premium Plan Coming Soon!
           </p>
         </div>
       </div>
       <div className="flex flex-col items-center justify-center gap-4 max-w-2xl">
         <h2 className="sm:text-5xl text-4xl font-bold text-foreground text-center">
-          Download and deploy any Framer website
+          Download any Framer website Instantly!
         </h2>
         <p className="text-base text-muted-foreground text-center max-w-md">
           Simply paste any .framer website URL and get the HTML files instantly. Deploy your Framer websites anywhere with just a few clicks.

@@ -1,0 +1,23 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/mirror",
+      "destination": "/server"
+    },
+    {
+      "source": "/api/download-framer",
+      "destination": "/server"
+    }
+  ],
+  "functions": {
+    "src/server/index.js": {
+      "memory": 1024,
+      "maxDuration": 60,
+      "runtime": "nodejs20.x"
+    }
+  },
+  "builds": [
+    { "src": "next.config.ts", "use": "@vercel/next" },
+    { "src": "src/server/index.js", "use": "@vercel/node" }
+  ]
+}

@@ -1,6 +1,6 @@
 # Framer Deploy
 
-A tool that allows you to download and deploy Framer websites easily.
+A tool that allows you to download Framer websites easily.
 
 ## Features
 
@@ -22,7 +22,7 @@ A tool that allows you to download and deploy Framer websites easily.
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/framer-deploy.git
+git clone https://github.com/weknowyourgame/framer-deploy.git
 cd framer-deploy
 ```
 
@@ -33,10 +33,11 @@ pnpm install
 
 3. Start the development server
 ```bash
-pnpm dev
+bun dev # For Next.js frontend
+bun api:dev # For Express API server
 ```
 
-The application should now be running on `http://localhost:3000`.
+The Next.js application should now be running on `http://localhost:3000` and the Express API on `http://localhost:3001`.
 
 ## How to Use
 
@@ -49,6 +50,7 @@ The application should now be running on `http://localhost:3000`.
 
 - Next.js 15
 - React 19
+- Express.js (API server)
 - TailwindCSS
 - TypeScript
 
