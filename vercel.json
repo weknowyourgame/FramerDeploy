@@ -1,16 +1,10 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/mirror",
-      "destination": "/server"
-    },
-    {
-      "source": "/api/download-framer",
-      "destination": "/server"
-    }
-  ],
   "functions": {
-    "src/server/index.js": {
+    "src/app/api/mirror/route.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    },
+    "src/app/api/download/route.ts": {
       "memory": 1024,
       "maxDuration": 60
     }
