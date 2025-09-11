@@ -12,12 +12,7 @@
   "functions": {
     "src/server/index.js": {
       "memory": 1024,
-      "maxDuration": 60,
-      "runtime": "nodejs20.x"
+      "maxDuration": 60
     }
-  },
-  "builds": [
-    { "src": "next.config.ts", "use": "@vercel/next" },
-    { "src": "src/server/index.js", "use": "@vercel/node" }
-  ]
+  }
 }
