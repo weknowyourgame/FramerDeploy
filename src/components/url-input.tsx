@@ -46,9 +46,9 @@ export default function UrlInput({ onSubmit }: UrlInputProps) {
 
       setDownloadProgress("Starting download process...");
       
-      // Make API call to mirror endpoint - this will trigger a direct download
+      // Make API call to external mirror-api
       setDownloadProgress("Contacting download server...");
-      const response = await fetch('/api/mirror', {
+      const response = await fetch(process.env.NEXT_PUBLIC_MIRROR_API_URL!, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
