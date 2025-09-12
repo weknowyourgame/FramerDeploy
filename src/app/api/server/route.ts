@@ -5,7 +5,7 @@ import path from 'path';
 import archiver from 'archiver';
 
 // Simple API token for development
-const SECRET_TOKEN = process.env.SECRET_TOKEN || 'dev_token_for_testing';
+const SECRET_TOKEN = process.env.SECRET_TOKEN;
 
 // Auth middleware
 function checkAuth(request: NextRequest) {

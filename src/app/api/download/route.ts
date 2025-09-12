@@ -17,7 +17,7 @@ export async function POST(request: Request) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.SECRET_TOKEN || 'dev_token_for_testing'
+        'x-api-key': process.env.SECRET_TOKEN!
       },
       body: JSON.stringify({ url })
     });
