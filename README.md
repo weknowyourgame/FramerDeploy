@@ -1,14 +1,14 @@
-# Framer Deploy
+# Export No Code
 
-A tool that allows you to download Framer websites easily.
+A tool that lets you export no‑code websites easily — starting with Framer.
 
 ## Features
 
-- **Easy Downloads**: Download HTML files from any Framer website by simply entering the URL
+- **Easy Downloads**: Download HTML files from supported no‑code sites by simply entering the URL
 - **No Coding Required**: User-friendly interface for non-technical users
 - **Fast Processing**: Quickly extract website files with a single click
 - **Deploy Anywhere (Coming Soon)**: Deploy to any hosting provider with one-click deployment
-- **Custom Domain Support (Coming Soon)**: Use your own domain for deployed Framer sites
+- **Custom Domain Support (Coming Soon)**: Use your own domain for deployed mirrors
 - **Analytics Integration (Coming Soon)**: Track visitor data on your deployed sites
 
 ## Getting Started
@@ -28,7 +28,7 @@ cd framer-deploy
 
 2. Install dependencies
 ```bash
-pnpm install
+bun install
 ```
 
 3. Start the development server
@@ -41,7 +41,7 @@ The Next.js application should now be running on `http://localhost:3000` and the
 
 ## How to Use
 
-1. Enter the URL of any Framer website in the input field (e.g., mysite.framer.website)
+1. Enter the URL of any supported website in the input field (e.g., mysite.framer.website)
 2. Click the "Download" button
 3. The application will process the website and provide downloadable HTML files
 4. (Coming soon) Choose a hosting provider to deploy your website

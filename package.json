@@ -1,5 +1,5 @@
 {
-  "name": "framer-deploy",
+  "name": "exportnocode",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -15,6 +15,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.887.0",
     "@notionhq/client": "^3.0.1",
+    "@paper-design/shaders-react": "^0.0.52",
     "@radix-ui/react-accordion": "^1.2.10",
     "@radix-ui/react-slot": "^1.2.2",
     "@react-email/components": "^0.0.41",

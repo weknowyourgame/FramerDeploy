@@ -4,7 +4,7 @@ export default function Features() {
   const features = [
     {
       title: "Download HTML Files",
-      description: "Get all the HTML files from any Framer website with a single click.",
+      description: "Get HTML from supported no‑code sites (Framer first) with one click.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-lime-400">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -15,7 +15,7 @@ export default function Features() {
     },
     {
       title: "Deploy Anywhere (Coming Soon)",
-      description: "Deploy your Framer websites our hosting service with our one-click deployment feature.",
+      description: "Publish mirrors to your hosting or our managed hosting (soon).",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-lime-400">
           <path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11V7M16 11V7"></path>
@@ -39,10 +39,10 @@ export default function Features() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Everything you need to use Framer websites
+            Everything you need to export no‑code sites
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            Framer Deploy gives you the tools to download and deploy Framer websites without any technical knowledge.
+            Export No Code lets anyone download and deploy no‑code sites without technical steps.
           </p>
         </div>
         <div className="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">

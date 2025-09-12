@@ -5,8 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// Helper function to validate Framer website URLs
+// Helper function to validate supported website URLs (Framer first)
 export function isValidFramerUrl(url: string): boolean {
-  // Basic validation for Framer website URLs
   return url.includes('.framer.') || url.endsWith('.framer.website');
 }

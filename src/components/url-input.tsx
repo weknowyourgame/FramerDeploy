@@ -20,7 +20,7 @@ export default function UrlInput({ onSubmit }: UrlInputProps) {
     setDownloadProgress(null);
 
     if (!url.trim()) {
-      setError("Please enter a Framer website URL");
+      setError("Please enter a website URL");
       return;
     }
 
@@ -94,7 +94,7 @@ export default function UrlInput({ onSubmit }: UrlInputProps) {
       
       // Get filename from content-disposition header or use default
       const contentDisposition = response.headers.get('content-disposition');
-      let filename = 'framer-website-mirror.zip';
+      let filename = 'exportnocode-website-mirror.zip';
       if (contentDisposition) {
         const filenameMatch = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(contentDisposition);
         if (filenameMatch && filenameMatch[1]) {
@@ -141,13 +141,13 @@ export default function UrlInput({ onSubmit }: UrlInputProps) {
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label htmlFor="url-input" className="sr-only">
-            Enter Framer website URL
+            Enter website URL
           </label>
           <div className="flex sm:flex-row flex-col w-full gap-2">
             <input
               id="url-input"
               type="text"
-              placeholder="Enter your .framer website URL (e.g., mysite.framer.website)"
+              placeholder="Enter your website URL (e.g., mysite.framer.website)"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"

@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 // Enable CORS for all routes with specific options
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://framerdeploy.com', '*'],
+  origin: ['http://localhost:3000', 'https://exportnocode.com', '*'],
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'x-api-key'],
   credentials: true

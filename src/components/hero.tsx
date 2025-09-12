@@ -43,10 +43,10 @@ export default function Hero() {
       </div>
       <div className="flex flex-col items-center justify-center gap-4 max-w-2xl">
         <h2 className="sm:text-5xl text-4xl font-bold text-foreground text-center">
-          Download any Framer website Instantly!
+          Export no‑code sites instantly
         </h2>
         <p className="text-base text-muted-foreground text-center max-w-md">
-          Simply paste any .framer website URL and get the HTML files instantly. Deploy your Framer websites anywhere with just a few clicks.
+          Paste any supported no‑code site URL and get HTML files instantly. Deploy anywhere with a few clicks.
         </p>
       </div>
       

@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Header from "~/components/header";
 import { ThemeProvider } from "~/providers/theme-provider";
+import { MeshGradientComponent } from "~/components/mesh-gradient";
 
 const geistMono = Geist_Mono({
 	variable: "--font-geist-mono",
@@ -19,9 +20,9 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-	title: "Framer Deploy - Download and deploy Framer websites easily",
+	title: "Export No Code - Export no-code sites (Framer and more) easily",
 	description:
-		"Framer Deploy lets you download and deploy any Framer website by simply entering the URL. Get HTML files instantly and deploy them anywhere.",
+		"Export No Code lets you download and export any supported no-code website (starting with Framer). Get HTML files instantly and deploy them anywhere.",
 };
 
 export default function RootLayout({
@@ -34,6 +35,24 @@ export default function RootLayout({
 			<body
 				className={`${interTight.variable} ${geistMono.variable} antialiased flex flex-col h-full`}
 			>
+			<MeshGradientComponent
+			colors={[
+				"#0f1419",
+				"#1b2f1b",
+				"#0d2818",
+				"#1a1a1a"
+			]}
+
+			speed={1}
+			style={{
+				position: 'fixed',
+				top: 0,
+				left: 0,
+				zIndex: 0,
+				width: '100%',
+				height: '100%',
+			}}
+			/>
 				<ThemeProvider>
 					<Header />
 					<Toaster />

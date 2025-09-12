@@ -13,7 +13,7 @@ export default function Faq() {
 					Frequently Asked Questions
 				</h2>
 				<p className="sm:text-base text-sm text-muted-foreground text-center">
-					Everything you need to know about Framer Deploy. Find answers to common
+					Everything you need to know about Export No Code. Find answers to common
 					questions.
 				</p>
 			</div>
@@ -25,21 +25,20 @@ export default function Faq() {
 				>
 					<AccordionItem value="item-1">
 						<AccordionTrigger className="hover:no-underline">
-							What is Framer Deploy?
+							What is Export No Code?
 						</AccordionTrigger>
 						<AccordionContent className="text-muted-foreground">
-							Framer Deploy is a tool that allows you to download and deploy Framer websites
-							simply by entering the URL. You can easily extract HTML files from any .framer
-							website domain and eventually deploy them to your own hosting.
+							Export No Code lets you download and deploy no‑code websites starting with Framer.
+							Paste a site URL to extract static HTML, then host it anywhere.
 						</AccordionContent>
 					</AccordionItem>
 					<AccordionItem value="item-2">
 						<AccordionTrigger className="hover:no-underline">
-							How do I use Framer Deploy?
+							How do I use Export No Code?
 						</AccordionTrigger>
 						<AccordionContent className="text-muted-foreground">
-							Simply enter the URL of any Framer website in the input field and click the "Download" button.
-							The tool will process the website and provide you with downloadable HTML files.
+							Enter a supported site URL and click "Download".
+							We’ll mirror the site and give you a ZIP with HTML files.
 							Deployment features are coming soon.
 						</AccordionContent>
 					</AccordionItem>
@@ -55,7 +54,7 @@ export default function Faq() {
 					</AccordionItem>
 					<AccordionItem value="item-4">
 						<AccordionTrigger className="hover:no-underline">
-							Is Framer Deploy free to use?
+							Is Export No Code free to use?
 						</AccordionTrigger>
 						<AccordionContent className="text-muted-foreground">
 							The basic download functionality is free to use. Premium features like

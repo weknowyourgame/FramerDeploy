@@ -19,7 +19,7 @@ export default function Header() {
 				href="/"
 				className="text-foreground font-semibold text-lg cursor-pointer"
 			>
-				Framer Deploy
+				Export No Code
 			</Link>
 		</header>
 	);
