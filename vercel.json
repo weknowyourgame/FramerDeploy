@@ -7,6 +7,10 @@
     "src/app/api/download/route.ts": {
       "memory": 1024,
       "maxDuration": 60
+    },
+    "src/app/api/server/route.ts": {
+      "memory": 1024,
+      "maxDuration": 60
     }
   }
 }

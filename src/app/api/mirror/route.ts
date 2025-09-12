@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Simple API token for development
-const SECRET_TOKEN = process.env.SECRET_TOKEN || 'dev_token_for_testing';
-
 export async function POST(request: NextRequest) {
   try {
     // Parse the incoming request
@@ -13,21 +10,22 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'URL is required' }, { status: 400 });
     }
     
-    // For testing, just connect directly to the Express server at port 3001
-    const EXPRESS_SERVER = 'http://localhost:3001';
+    // Forward the request to our serverless function
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000';
     
     try {
-      // Forward the request to Express server
-      const response = await fetch(`${EXPRESS_SERVER}/api/mirror`, {
+      const response = await fetch(`${baseUrl}/api/server`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': SECRET_TOKEN,
+          'x-api-key': process.env.SECRET_TOKEN || 'dev_token_for_testing',
         },
         body: JSON.stringify(body),
       });
       
-      // Handle errors from Express server
+      // Handle errors from serverless function
       if (!response.ok) {
         let errorMessage = 'Error mirroring website';
         try {
@@ -57,10 +55,10 @@ export async function POST(request: NextRequest) {
       
       return newResponse;
     } catch (fetchError) {
-      console.error('Error connecting to Express server:', fetchError);
+      console.error('Error calling serverless function:', fetchError);
       return NextResponse.json({
-        error: 'Failed to connect to download server',
-        details: 'Make sure the Express server is running on port 3001'
+        error: 'Failed to process mirror request',
+        details: 'Internal server error'
       }, { status: 503 });
     }
   } catch (error) {

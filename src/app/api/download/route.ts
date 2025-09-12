@@ -8,13 +8,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'URL is required' }, { status: 400 });
     }
 
-    // Call our Express API to download the Framer website
-    const apiUrl = process.env.API_URL || 'http://localhost:3001';
-    const response = await fetch(`${apiUrl}/download-framer`, {
+    // Call our serverless function to download the Framer website
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000';
+    
+    const response = await fetch(`${baseUrl}/api/server`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.SECRET_TOKEN || 'your-api-key-here'
+        'x-api-key': process.env.SECRET_TOKEN || 'dev_token_for_testing'
       },
       body: JSON.stringify({ url })
     });
@@ -24,15 +27,22 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: errorData.detail || 'Download failed' }, { status: response.status });
     }
 
-    const data = await response.json();
+    // Get the zip file as blob
+    const blob = await response.blob();
     
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Download completed successfully',
-      url,
-      download_url: data.download_url,
-      view_url: data.view_url
-    });
+    // Create a new response with the blob
+    const newResponse = new NextResponse(blob);
+    
+    // Copy content-disposition header if present
+    const contentDisposition = response.headers.get('content-disposition');
+    if (contentDisposition) {
+      newResponse.headers.set('content-disposition', contentDisposition);
+    }
+    
+    // Set content type to zip
+    newResponse.headers.set('content-type', 'application/zip');
+    
+    return newResponse;
   } catch (error) {
     console.error('Error downloading Framer website:', error);
     return NextResponse.json(
