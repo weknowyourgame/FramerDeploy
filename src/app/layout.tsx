@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Inter_Tight } from "next/font/google";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 import Header from "~/components/header";
@@ -36,6 +37,7 @@ export default function RootLayout({
 				<ThemeProvider>
 					<Header />
 					<Toaster />
+					<Analytics />
 					{children}
 				</ThemeProvider>
 			</body>
