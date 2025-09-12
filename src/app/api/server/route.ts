@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
 
     // Determine a folder name for this mirror
     const hostname = new URL(normalizedUrl).hostname;
-    const mirrorsDir = path.join(process.cwd(), 'mirrors');
+    const mirrorsDir = path.join('/tmp', 'mirrors');
     
     // Create mirrors directory if it doesn't exist
     if (!fs.existsSync(mirrorsDir)) {
