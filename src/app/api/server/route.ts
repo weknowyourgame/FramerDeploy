@@ -4,17 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import archiver from 'archiver';
 
-// Simple API token for development
-const SECRET_TOKEN = process.env.SECRET_TOKEN;
-
-// Auth middleware
-function checkAuth(request: NextRequest) {
-  const token = request.headers.get('x-api-key');
-  if (token !== SECRET_TOKEN) {
-    return NextResponse.json({ detail: "Unauthorized" }, { status: 401 });
-  }
-  return null;
-}
+// No authentication required
 
 // Helper function to normalize URL
 function normalizeUrlRemoveWww(url: string): string {
@@ -31,9 +21,6 @@ function normalizeUrlRemoveWww(url: string): string {
 
 // Health check endpoint
 export async function GET(request: NextRequest) {
-  const authError = checkAuth(request);
-  if (authError) return authError;
-
   return NextResponse.json({
     status: "healthy",
     service: "Website Mirror API",
@@ -43,8 +30,6 @@ export async function GET(request: NextRequest) {
 
 // Mirror endpoint
 export async function POST(request: NextRequest) {
-  const authError = checkAuth(request);
-  if (authError) return authError;
 
   try {
     const body = await request.json();
