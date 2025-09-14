@@ -13,7 +13,7 @@ export default function Faq() {
 					Frequently Asked Questions
 				</h2>
 				<p className="sm:text-base text-sm text-muted-foreground text-center">
-					Everything you need to know about Export No Code. Find answers to common
+					Everything you need to know about ExportNoCode. Find answers to common
 					questions.
 				</p>
 			</div>
@@ -25,16 +25,16 @@ export default function Faq() {
 				>
 					<AccordionItem value="item-1">
 						<AccordionTrigger className="hover:no-underline">
-							What is Export No Code?
+							What is ExportNoCode?
 						</AccordionTrigger>
 						<AccordionContent className="text-muted-foreground">
-							Export No Code lets you download and deploy no‑code websites starting with Framer.
+							ExportNoCode lets you download and deploy no‑code websites starting with Framer.
 							Paste a site URL to extract static HTML, then host it anywhere.
 						</AccordionContent>
 					</AccordionItem>
 					<AccordionItem value="item-2">
 						<AccordionTrigger className="hover:no-underline">
-							How do I use Export No Code?
+							How do I use ExportNoCode?
 						</AccordionTrigger>
 						<AccordionContent className="text-muted-foreground">
 							Enter a supported site URL and click "Download".
@@ -54,7 +54,7 @@ export default function Faq() {
 					</AccordionItem>
 					<AccordionItem value="item-4">
 						<AccordionTrigger className="hover:no-underline">
-							Is Export No Code free to use?
+							Is ExportNoCode free to use?
 						</AccordionTrigger>
 						<AccordionContent className="text-muted-foreground">
 							The basic download functionality is free to use. Premium features like

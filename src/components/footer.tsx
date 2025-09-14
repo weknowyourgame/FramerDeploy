@@ -20,7 +20,7 @@ export default function Footer() {
         <p className="text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} Framer Deploy. All rights reserved.
           <p className="p-8">
-            Built with ❤️ By Sarthak Kapila
+            Built with ❤️ By {" "} <Link href="https://x.com/0xsarthakk" className="text-foreground underline hover:text-lime-400">Sarthak Kapila</Link>
           </p>
         </p>
       </div>

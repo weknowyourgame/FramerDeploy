@@ -42,7 +42,7 @@ export default function Features() {
             Everything you need to export no‑code sites
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            Export No Code lets anyone download and deploy no‑code sites without technical steps.
+            ExportNoCode lets anyone download and deploy no‑code sites without technical steps.
           </p>
         </div>
         <div className="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">

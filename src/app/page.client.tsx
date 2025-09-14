@@ -23,8 +23,8 @@ export function LandingPage() {
           manualstart={true}
         />
         <Hero />
-        <Features />
         <Demo videoSrc="/demo.mp4" thumbnailSrc="/demo.png" />
+        <Features />
         <Faq />
         <Footer />
       </main>

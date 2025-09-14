@@ -16,6 +16,7 @@ export default function Demo({
 	className = "",
 }: DemoProps) {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const modalVideoRef = useRef<HTMLVideoElement>(null);
 
@@ -45,6 +46,26 @@ export default function Demo({
 		}
 	}, [isModalOpen]);
 
+	// Ensure video autoplays when component mounts
+	useEffect(() => {
+		if (videoRef.current) {
+			videoRef.current.play().then(() => {
+				setIsVideoPlaying(true);
+			}).catch((error) => {
+				console.log('Autoplay prevented:', error);
+			});
+		}
+	}, []);
+
+	// Handle video play events
+	const handleVideoPlay = () => {
+		setIsVideoPlaying(true);
+	};
+
+	const handleVideoPause = () => {
+		setIsVideoPlaying(false);
+	};
+
 	return (
 		<div className="py-14 sm:px-0 px-4">
 			<div className="bg-muted/40 rounded-lg p-2 max-w-3xl mx-auto">
@@ -64,12 +85,20 @@ export default function Demo({
 				>
 					{/* Glitch effect container */}
 					<div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden">
-						{/* Video thumbnail */}
+						{/* Autoplay video */}
 						<video
 							ref={videoRef}
+							src={videoSrc}
 							poster={thumbnailSrc}
-							className="w-full h-full object-cover"
+							className="w-full h-full object-cover cursor-pointer"
 							muted
+							autoPlay
+							loop
+							playsInline
+							preload="auto"
+							onClick={handlePlayClick}
+							onPlay={handleVideoPlay}
+							onPause={handleVideoPause}
 							aria-describedby="video-description"
 						>
 							<track
@@ -85,33 +114,34 @@ export default function Demo({
 							are necessary as this is primarily a visual demo with no speech.
 						</span>
 
-						{/* Play button overlay */}
-						<div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-60">
-							{/* Play button */}
-							<motion.button
+						{/* Click to expand overlay - only show when video is not playing */}
+						{!isVideoPlaying && (
+							<div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-20 hover:bg-opacity-30 transition-all duration-300 cursor-pointer"
 								onClick={handlePlayClick}
-								className="relative w-16 h-16 bg-[#e5ff00] rounded-full flex items-center justify-center mb-4 z-10"
-								whileHover={{ scale: 1.1 }}
-								whileTap={{ scale: 0.95 }}
-								aria-label="Play video"
-								type="button"
 							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-									fill="black"
-									className="w-8 h-8"
-									style={{ marginLeft: "2px" }} // Slight offset for the play icon
-									aria-hidden="true"
+								{/* Expand icon */}
+								<motion.div
+									className="relative w-16 h-16 bg-[#e5ff00] rounded-full flex items-center justify-center mb-4 z-10"
+									whileHover={{ scale: 1.1 }}
+									whileTap={{ scale: 0.95 }}
+									aria-label="Expand video to full screen"
 								>
-									<title>Play Icon</title>
-									<path d="M8 5v14l11-7z" />
-								</svg>
-							</motion.button>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										fill="black"
+										className="w-8 h-8"
+										aria-hidden="true"
+									>
+										<title>Expand Icon</title>
+										<path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+									</svg>
+								</motion.div>
 
-							{/* Text below the play button */}
-							<p className="text-gray-300 text-sm">See how Framer Deploy works</p>
-						</div>
+								{/* Text below the expand button */}
+								<p className="text-gray-300 text-sm">Click to expand</p>
+							</div>
+						)}
 
 						{/* CRT scan lines effect */}
 						<div

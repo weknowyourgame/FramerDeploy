@@ -20,9 +20,9 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-	title: "Export No Code - Export no-code sites (Framer and more) easily",
+	title: "ExportNoCode - Export no-code sites (Framer and more) easily",
 	description:
-		"Export No Code lets you download and export any supported no-code website (starting with Framer). Get HTML files instantly and deploy them anywhere.",
+		"ExportNoCode lets you download and export any supported no-code website (starting with Framer). Get HTML files instantly and deploy them anywhere.",
 };
 
 export default function RootLayout({
